@@ -1,5 +1,7 @@
 # DotNet Practicals (2026)
 
+🚀 Made by **Shiven Dubey** | **TYBSc IT – University of Mumbai** 🎓 | A collection of **.NET Core, C# & PWA** practicals created to help my friends and fellow IT students learn, code, debug, and grow together! 💻🔥
+
 Practical-wise reference files extracted from the supplied **DotNet(2026).pdf**. No individual screenshots are needed.
 
 **24 practicals extracted across two modules.** The original index lists 25; Module 1 Practical 4c (AdRotator) is absent from the PDF body and has a clearly marked placeholder folder.
