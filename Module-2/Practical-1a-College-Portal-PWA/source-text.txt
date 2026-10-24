@@ -1,0 +1,264 @@
+=== PDF PAGE 50 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 47 
+ 
+ 
+Practical 1a: College Information Portal as PWA 
+ 
+AIM:To create a simple website for a College Information Portal and convert it into a 
+Progressive Web Application (PWA) by adding a Service Worker and Web App Manifest. 
+ 
+Steps : 
+1. Create an HTML/CSS website for the College Portal 
+2. Create manifest.json with app metadata 
+3. Create service-worker.js to cache assets 
+4. Register the service worker in index.html 
+ 
+ 
+Index.cshtml 
+ 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+ 
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0"> 
+ 
+    <title>College Information Portal</title> 
+ 
+    <!-- PWA Manifest --> 
+    <link rel="manifest" href="manifest.json"> 
+ 
+    <!-- CSS --> 
+    <link rel="stylesheet" href="style.css"> 
+</head> 
+ 
+<body> 
+ 
+    <header> 
+        <h1>College Information Portal</h1> 
+        <p>Welcome to Our College</p> 
+    </header> 
+ 
+    <nav> 
+        <a href="#home">Home</a> 
+
+=== PDF PAGE 51 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 48 
+ 
+        <a href="#courses">Courses</a> 
+        <a href="#notice">Notice</a> 
+        <a href="#contact">Contact</a> 
+    </nav> 
+ 
+    <main> 
+ 
+        <section id="home"> 
+            <h2>About College</h2> 
+            <p> 
+                Welcome to our College Information Portal. 
+                This website provides college information, 
+                courses, notices and contact details. 
+            </p> 
+        </section> 
+ 
+        <section id="courses"> 
+            <h2>Courses Offered</h2> 
+ 
+            <ul> 
+                <li>B.Sc. Computer Science</li> 
+                <li>B.Sc. Information Technology</li> 
+                <li>B.Com.</li> 
+                <li>B.A.</li> 
+            </ul> 
+        </section> 
+ 
+        <section id="notice"> 
+            <h2>Latest Notices</h2> 
+ 
+            <p>� Admission process has started.</p> 
+            <p>� Internal examination timetable released.</p> 
+            <p>� College annual event will be conducted soon.</p> 
+        </section> 
+ 
+        <section id="contact"> 
+            <h2>Contact Us</h2> 
+ 
+            <p>Email: college@example.com</p> 
+            <p>Phone: 9876543210</p> 
+
+=== PDF PAGE 52 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 49 
+ 
+        </section> 
+ 
+    </main> 
+ 
+    <footer> 
+        <p>© 2026 College Information Portal</p> 
+    </footer> 
+ 
+ 
+    <!-- Register Service Worker --> 
+    <script> 
+        if ('serviceWorker' in navigator) { 
+            window.addEventListener('load', function () { 
+                navigator.serviceWorker.register('/service-worker.js') 
+                    .then(function (registration) { 
+                        console.log('Service Worker registered:', registration.scope); 
+                    }) 
+                    .catch(function (error) { 
+                        console.log('Service Worker registration failed:', error); 
+                    }); 
+            }); 
+        } 
+    </script> 
+ 
+</body> 
+</html> 
+ 
+Style.css 
+ 
+body { 
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+    background-color: #f2f2f2; 
+} 
+ 
+header { 
+    background-color: #0066cc; 
+    color: white; 
+    text-align: center; 
+    padding: 25px; 
+} 
+ 
+
+=== PDF PAGE 53 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 50 
+ 
+nav { 
+    background-color: #333; 
+    text-align: center; 
+    padding: 15px; 
+} 
+ 
+    nav a { 
+        color: white; 
+        text-decoration: none; 
+        margin: 15px; 
+    } 
+ 
+main { 
+    width: 80%; 
+    margin: 20px auto; 
+} 
+ 
+section { 
+    background-color: white; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    border-radius: 8px; 
+} 
+ 
+h2 { 
+    color: #0066cc; 
+} 
+ 
+footer { 
+    background-color: #333; 
+    color: white; 
+    text-align: center; 
+    padding: 15px; 
+} 
+ 
+Service-Worker.js 
+ 
+const CACHE_NAME = "college-portal-v1"; 
+ 
+const ASSETS = [ 
+    "/", 
+    "/css/site.css", 
+    "/manifest.json" 
+]; 
+
+=== PDF PAGE 54 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 51 
+ 
+self.addEventListener("install", event => { 
+    console.log("Service Worker: Installing..."); 
+ 
+    event.waitUntil( 
+        caches.open(CACHE_NAME) 
+            .then(cache => { 
+                return cache.addAll(ASSETS); 
+            }) 
+    ); 
+}); 
+ 
+self.addEventListener("activate", event => { 
+    console.log("Service Worker: Activated"); 
+}); 
+ 
+self.addEventListener("fetch", event => { 
+    event.respondWith( 
+        caches.match(event.request) 
+            .then(response => { 
+                return response || fetch(event.request); 
+            }) 
+    ); 
+}); 
+ 
+Manifest.json 
+ 
+{ 
+  "name": "College Information Portal", 
+  "short_name": "College Portal", 
+  "start_url": "/index.html", 
+  "display": "standalone", 
+  "background_color": "#ffffff", 
+  "theme_color": "#0066cc", 
+  "description": "College Information Portal Progressive Web Application", 
+ 
+  "icons": [ 
+    { 
+      "src": "icons/icon-192.png", 
+      "sizes": "192x192", 
+      "type": "image/png" 
+    }, 
+    { 
+      "src": "icons/icon-512.png", 
+      "sizes": "512x512", 
+
+=== PDF PAGE 55 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 52 
+ 
+      "type": "image/png" 
+    } 
+  ] 
+} 
+ 
+ 
+ 
+Output 
+ 
+ 
+ 
+ 
+
+
+=== PDF PAGE 56 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 53

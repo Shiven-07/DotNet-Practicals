@@ -1,0 +1,515 @@
+[
+  {
+    "module": 1,
+    "practical": "1a",
+    "title": "MVC Application for Basic Arithmetic Operations",
+    "path": "Module-1/Practical-1a-MVC-Arithmetic",
+    "status": "Extracted",
+    "kind": "mvc",
+    "files": [
+      "Models/ArithmeticModel.cs",
+      "Controllers/HomeController.cs",
+      "Views/Home/Index.cshtml"
+    ],
+    "pdf_pages": [
+      4,
+      7
+    ],
+    "changes": [
+      "Rejoined Bootstrap class names split over PDF lines, such as btn-primary."
+    ],
+    "notes": [
+      "Create the ASP.NET Core MVC project ArithmeticMVC as described in the PDF (.NET 6 or .NET 8). Copy the files into matching template folders. Keep the template startup, layout and tag-helper imports. Open /Home/Index."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "1b",
+    "title": "Floyd's Triangle till N Rows",
+    "path": "Module-1/Practical-1b-Floyds-Triangle",
+    "status": "Extracted",
+    "kind": "console",
+    "files": [
+      "Program.cs"
+    ],
+    "pdf_pages": [
+      8,
+      9
+    ],
+    "changes": [],
+    "notes": [
+      "Create a C# Console App named FloydTriangle in Visual Studio, replace its Program.cs, then run with Ctrl+F5. Each practical is an independent program; do not combine the entry points in a single project."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "1c",
+    "title": "Arrange Names of Cities in Sorted Order",
+    "path": "Module-1/Practical-1c-Sort-Cities",
+    "status": "Extracted",
+    "kind": "console",
+    "files": [
+      "Program.cs"
+    ],
+    "pdf_pages": [
+      10,
+      11
+    ],
+    "changes": [],
+    "notes": [
+      "Create a C# Console App named SortCities in Visual Studio, replace its Program.cs, then run with Ctrl+F5. Each practical is an independent program; do not combine the entry points in a single project."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "2a",
+    "title": "Function Overloading",
+    "path": "Module-1/Practical-2a-Function-Overloading",
+    "status": "Extracted",
+    "kind": "console",
+    "files": [
+      "Program.cs"
+    ],
+    "pdf_pages": [
+      12,
+      13
+    ],
+    "changes": [],
+    "notes": [
+      "Create a C# Console App named FunctionOverloading in Visual Studio, replace its Program.cs, then run with Ctrl+F5. Each practical is an independent program; do not combine the entry points in a single project."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "2b",
+    "title": "Inheritance (All Types)",
+    "path": "Module-1/Practical-2b-Inheritance",
+    "status": "Extracted",
+    "kind": "console",
+    "files": [
+      "Program.cs"
+    ],
+    "pdf_pages": [
+      14,
+      16
+    ],
+    "changes": [],
+    "notes": [
+      "Create a C# Console App named InheritanceDemo in Visual Studio, replace its Program.cs, then run with Ctrl+F5. Each practical is an independent program; do not combine the entry points in a single project."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "2c",
+    "title": "Constructor Overloading",
+    "path": "Module-1/Practical-2c-Constructor-Overloading",
+    "status": "Extracted",
+    "kind": "console",
+    "files": [
+      "Program.cs"
+    ],
+    "pdf_pages": [
+      17,
+      19
+    ],
+    "changes": [],
+    "notes": [
+      "Create a C# Console App named ConstructorOverloading in Visual Studio, replace its Program.cs, then run with Ctrl+F5. Each practical is an independent program; do not combine the entry points in a single project."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "2d",
+    "title": "Interfaces",
+    "path": "Module-1/Practical-2d-Interfaces",
+    "status": "Extracted",
+    "kind": "console",
+    "files": [
+      "Program.cs"
+    ],
+    "pdf_pages": [
+      20,
+      21
+    ],
+    "changes": [],
+    "notes": [
+      "Create a C# Console App named InterfaceDemo in Visual Studio, replace its Program.cs, then run with Ctrl+F5. Each practical is an independent program; do not combine the entry points in a single project."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "2e",
+    "title": "Using Delegates and Events",
+    "path": "Module-1/Practical-2e-Delegates-and-Events",
+    "status": "Extracted",
+    "kind": "console",
+    "files": [
+      "Program.cs"
+    ],
+    "pdf_pages": [
+      22,
+      23
+    ],
+    "changes": [],
+    "notes": [
+      "Create a C# Console App named DelegatesEvents in Visual Studio, replace its Program.cs, then run with Ctrl+F5. Each practical is an independent program; do not combine the entry points in a single project."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "2f",
+    "title": "Exception Handling",
+    "path": "Module-1/Practical-2f-Exception-Handling",
+    "status": "Extracted",
+    "kind": "console",
+    "files": [
+      "Program.cs"
+    ],
+    "pdf_pages": [
+      24,
+      26
+    ],
+    "changes": [],
+    "notes": [
+      "Create a C# Console App named ExceptionHandling in Visual Studio, replace its Program.cs, then run with Ctrl+F5. Each practical is an independent program; do not combine the entry points in a single project."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "3a",
+    "title": "Arithmetic Methods via C# Delegates",
+    "path": "Module-1/Practical-3a-Arithmetic-Delegates",
+    "status": "Extracted",
+    "kind": "console",
+    "files": [
+      "Program.cs"
+    ],
+    "pdf_pages": [
+      27,
+      28
+    ],
+    "changes": [],
+    "notes": [
+      "Create a C# Console App named DelegateArithmetic in Visual Studio, replace its Program.cs, then run with Ctrl+F5. Each practical is an independent program; do not combine the entry points in a single project."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "3b",
+    "title": "Multicast Delegate",
+    "path": "Module-1/Practical-3b-Multicast-Delegate",
+    "status": "Extracted",
+    "kind": "console",
+    "files": [
+      "Program.cs"
+    ],
+    "pdf_pages": [
+      29,
+      30
+    ],
+    "changes": [],
+    "notes": [
+      "Create a C# Console App named MulticastDelegate in Visual Studio, replace its Program.cs, then run with Ctrl+F5. Each practical is an independent program; do not combine the entry points in a single project."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "3c",
+    "title": "BankAccount Class with Property Validation",
+    "path": "Module-1/Practical-3c-BankAccount-Properties",
+    "status": "Extracted",
+    "kind": "console",
+    "files": [
+      "Program.cs"
+    ],
+    "pdf_pages": [
+      31,
+      33
+    ],
+    "changes": [],
+    "notes": [
+      "Create a C# Console App named BankAccountApp in Visual Studio, replace its Program.cs, then run with Ctrl+F5. Each practical is an independent program; do not combine the entry points in a single project."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "4a",
+    "title": "Student Registration Form",
+    "path": "Module-1/Practical-4a-Student-Registration",
+    "status": "Extracted",
+    "kind": "webforms",
+    "files": [
+      "Default.aspx",
+      "Default.aspx.cs"
+    ],
+    "pdf_pages": [
+      34,
+      37
+    ],
+    "changes": [
+      "Rejoined the string \"Not Selected\" split over PDF lines."
+    ],
+    "notes": [
+      "Create an ASP.NET Web Application (.NET Framework), select Web Forms, and name it StudentRegForm. Use the template to generate designer and project files; copy these two files into it. ASP.NET Core templates do not support Web Forms controls."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "4b",
+    "title": "Registration Form with Validation Controls",
+    "path": "Module-1/Practical-4b-Validation-Controls",
+    "status": "Extracted",
+    "kind": "webforms",
+    "files": [
+      "ValidationForm.aspx"
+    ],
+    "pdf_pages": [
+      38,
+      40
+    ],
+    "changes": [],
+    "notes": [
+      "The PDF supplies only ASPX markup. It references Validation.aspx.cs, class StudentRegForm.Validation, and handler btnReg_Click, but does not supply their code. Those pieces and the Web Forms designer must be supplied in a .NET Framework Web Forms project before running this example."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "4c",
+    "title": "AdRotator Control",
+    "path": "Module-1/Practical-4c-AdRotator-MISSING",
+    "status": "Missing from PDF",
+    "files": [],
+    "pdf_pages": null,
+    "notes": [
+      "Listed in the index but absent from the PDF body."
+    ],
+    "changes": []
+  },
+  {
+    "module": 1,
+    "practical": "5a",
+    "title": "Different Types of Cookies",
+    "path": "Module-1/Practical-5a-Cookies",
+    "status": "Extracted",
+    "kind": "mvc",
+    "files": [
+      "Controllers/CookieController.cs",
+      "Views/Cookie/Index.cshtml"
+    ],
+    "pdf_pages": [
+      41,
+      43
+    ],
+    "changes": [
+      "Named the controller file CookieController.cs to match the class; the PDF heading says CookiesController.cs."
+    ],
+    "notes": [
+      "Create an ASP.NET Core MVC project named CookieDemo, copy these files into the indicated folders, keep the template startup files, and open /Cookie/Index. The code demonstrates a persistent cookie with a seven-day expiry. A separate session-cookie example is absent despite the stated aim."
+    ]
+  },
+  {
+    "module": 1,
+    "practical": "5b",
+    "title": "Product Table with EF Core (Insert Operation)",
+    "path": "Module-1/Practical-5b-EF-Core-Product-Insert",
+    "status": "Extracted",
+    "kind": "ef",
+    "files": [
+      "Models/Product.cs",
+      "Models/Data/AppDbContext.cs",
+      "Controllers/ProductController.cs",
+      "appsettings.json",
+      "Program.cs",
+      "Views/Product/Index.cshtml"
+    ],
+    "pdf_pages": [
+      44,
+      48
+    ],
+    "changes": [
+      "Wrapped the partial connection string in a complete JSON object, closed ConnectionStrings, and rejoined MultipleActiveResultSets."
+    ],
+    "notes": [
+      "Create an ASP.NET Core MVC project named WebApplication5 and copy these files, keeping template tag-helper imports. Install Entity Framework Core, SqlServer and Tools packages for the target framework, then follow the PDF migration steps. SQL Server LocalDB and database setup are required. Open /Product/Index; the source startup defaults to a Home route whose controller is not supplied in the PDF."
+    ]
+  },
+  {
+    "module": 2,
+    "practical": "1a",
+    "title": "College Information Portal as PWA",
+    "path": "Module-2/Practical-1a-College-Portal-PWA",
+    "status": "Extracted",
+    "kind": "pwa",
+    "files": [
+      "index.html",
+      "style.css",
+      "service-worker.js",
+      "manifest.json"
+    ],
+    "pdf_pages": [
+      50,
+      56
+    ],
+    "changes": [
+      "Saved the plain HTML as index.html to match the manifest (PDF heading: Index.cshtml); normalized CSS/JS/JSON filename casing to match the HTML.",
+      "Changed cache entry /css/site.css to /style.css, matching the supplied stylesheet.",
+      "Removed decorative characters that the PDF text layer could not decode."
+    ],
+    "notes": [
+      "HTML, stylesheet, manifest and service worker are supplied. Referenced PNG icons are not supplied by the PDF. Add them at the manifest paths for a complete installable PWA."
+    ]
+  },
+  {
+    "module": 2,
+    "practical": "1b",
+    "title": "PWA with Custom Offline Page",
+    "path": "Module-2/Practical-1b-Custom-Offline-Page",
+    "status": "Extracted",
+    "kind": "pwa",
+    "files": [
+      "offline.html",
+      "service-worker.js"
+    ],
+    "pdf_pages": [
+      57,
+      59
+    ],
+    "changes": [
+      "Normalized offline.html casing to match the service worker.",
+      "Removed an undecodable decorative icon."
+    ],
+    "notes": [
+      "This offline-page extension expects a home page at /, /style.css and worker registration code. Those are not provided in this section. Integrate it with the college portal practical or an existing site."
+    ]
+  },
+  {
+    "module": 2,
+    "practical": "2a",
+    "title": "PWA with Offline Mode using Service Worker",
+    "path": "Module-2/Practical-2a-Offline-Service-Worker",
+    "status": "Extracted",
+    "kind": "pwa",
+    "files": [
+      "service-worker.js"
+    ],
+    "pdf_pages": [
+      60,
+      61
+    ],
+    "changes": [],
+    "notes": [
+      "Only the service worker is provided. The listed HTML, CSS, app.js, icons and offline page, plus registration code, must exist in a host site. Missing listed assets can make precaching fail. Integrate this worker into an existing PWA."
+    ]
+  },
+  {
+    "module": 2,
+    "practical": "2b",
+    "title": "Student Record Management PWA",
+    "path": "Module-2/Practical-2b-Student-Records-PWA",
+    "status": "Extracted",
+    "kind": "pwa",
+    "files": [
+      "index.html"
+    ],
+    "pdf_pages": [
+      62,
+      66
+    ],
+    "changes": [
+      "Closed the incomplete BSc CS option tag.",
+      "Removed an undecodable heading icon and normalized the HTML filename."
+    ],
+    "notes": [
+      "The PDF contains HTML and localStorage logic only. It references manifest.json and /sw.js, but neither is supplied here. Add these and manifest icons for offline page loading and installability. Records are stored in this browser."
+    ]
+  },
+  {
+    "module": 2,
+    "practical": "3a",
+    "title": "HTML Page with Link to manifest.json",
+    "path": "Module-2/Practical-3a-HTML-and-Manifest",
+    "status": "Extracted",
+    "kind": "pwa",
+    "files": [
+      "index.html",
+      "manifest.json"
+    ],
+    "pdf_pages": [
+      67,
+      70
+    ],
+    "changes": [
+      "Repaired the visibly corrupted icons array: removed duplicate text and completed the 512px entry using the same fields as the 192px entry. This completion is inferred; source.pdf preserves the original.",
+      "Removed undecodable status icons and normalized HTML/JSON filename casing."
+    ],
+    "notes": [
+      "The source references style.css, /sw.js and PNG icons that are not supplied in this section. Add them to complete the PWA. A manifest alone does not make page loading work offline."
+    ]
+  },
+  {
+    "module": 2,
+    "practical": "3b",
+    "title": "Simple Web API returning Student data in JSON",
+    "path": "Module-2/Practical-3b-Student-Web-API",
+    "status": "Extracted",
+    "kind": "api",
+    "files": [
+      "Models/Student.cs",
+      "Controllers/StudentsController.cs"
+    ],
+    "pdf_pages": [
+      71,
+      73
+    ],
+    "changes": [],
+    "notes": [
+      "Create an ASP.NET Core Web API project named StudentAPI with controllers enabled. Copy the model and controller into it. Startup must register controllers and map controller endpoints. Test GET /api/students and /api/students/1. The PDF does not supply Program.cs or a project file."
+    ]
+  },
+  {
+    "module": 2,
+    "practical": "4a",
+    "title": "PWA Manifest and Push Notifications",
+    "path": "Module-2/Practical-4a-Manifest-and-Push-Notifications",
+    "status": "Extracted",
+    "kind": "pwa",
+    "files": [
+      "manifest.json",
+      "push-notification.js",
+      "service-worker.js"
+    ],
+    "pdf_pages": [
+      74,
+      77
+    ],
+    "changes": [
+      "Moved the worker push handler into service-worker.js, as directed by the PDF comment, and removed a repeated filename heading."
+    ],
+    "notes": [
+      "These are snippets. The source leaves YOUR_VAPID_PUBLIC_KEY as a placeholder and omits urlBase64ToUint8Array, the /api/subscribe backend, push-sending code, HTML entry point, registration code and icons. Remote push needs this setup. The local notification function is a separate demo. No keys or credentials have been generated."
+    ]
+  },
+  {
+    "module": 2,
+    "practical": "4b",
+    "title": "E-Commerce PWA with Product Listing and Offline Cart",
+    "path": "Module-2/Practical-4b-E-Commerce-PWA",
+    "status": "Extracted",
+    "kind": "pwa",
+    "files": [
+      "index.html"
+    ],
+    "pdf_pages": [
+      78,
+      87
+    ],
+    "changes": [
+      "Restored the missing keyboard-icon closing quote and the opening braces for addToCart and the offline checkout branch.",
+      "Restored the service-worker feature-check closing brace and the missing initial 0 in the cart quantity reduction, which is needed for an empty cart.",
+      "Removed undecodable decorative icons; product names and prices remain intact."
+    ],
+    "notes": [
+      "The PDF supplies HTML/cart code but omits manifest.json, /sw.js and PWA icons. Add them for offline page loading and installation. Checkout is only an alert demo: it does not submit orders or queue them on reconnection, despite the original alert wording. The cart uses localStorage."
+    ]
+  }
+]

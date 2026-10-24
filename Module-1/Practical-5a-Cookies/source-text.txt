@@ -1,0 +1,82 @@
+=== PDF PAGE 41 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 38 
+ 
+Practical 5a: Different Types of Cookies 
+ 
+AIM: To create an ASP.NET Core web application demonstrating Session Cookies and 
+Persistent Cookies. 
+       
+ CookiesController.cs 
+ 
+   using Microsoft.AspNetCore.Mvc; 
+ 
+   namespace CookieDemo.Controllers 
+   { 
+    public class CookieController : Controller 
+    { 
+        public IActionResult Index() 
+        { 
+            return View(); 
+        } 
+ 
+        public IActionResult CreateCookie() 
+        { 
+            CookieOptions option = new CookieOptions(); 
+            option.Expires = DateTime.Now.AddDays(7); 
+ 
+            Response.Cookies.Append("Username", "Aditya", option); 
+ 
+            return Content("Cookie Created Successfully"); 
+        } 
+ 
+        public IActionResult ReadCookie() 
+        { 
+            string? value = Request.Cookies["Username"]; 
+ 
+            if (string.IsNullOrEmpty(value)) 
+                return Content("Cookie Not Found"); 
+ 
+            return Content("Cookie Value: " + value); 
+        } 
+ 
+        public IActionResult DeleteCookie() 
+        { 
+
+=== PDF PAGE 42 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 39 
+ 
+            Response.Cookies.Delete("Username"); 
+            return Content("Cookie Deleted"); 
+        } 
+    } 
+} 
+ 
+Index.cshtml 
+<h2>Cookie Demo</h2> 
+ 
+<a href="/Cookie/CreateCookie">Create Cookie</a> 
+<br /> 
+<br /> 
+<a href="/Cookie/ReadCookie">Read Cookie</a> 
+<br /> 
+<br /> 
+<a href="/Cookie/DeleteCookie">Delete Cookie</a> 
+ 
+Output 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+=== PDF PAGE 43 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 40

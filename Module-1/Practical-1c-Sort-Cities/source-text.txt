@@ -1,0 +1,58 @@
+=== PDF PAGE 10 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 7 
+ 
+Practical 1c: Arrange Names of Cities in Sorted Order  
+ 
+AIM:To write a C# program that accepts names of 10 cities from the user and displays them in 
+sorted (alphabetical) order.  
+ 
+Steps To Follow: 
+ 
+1. Open Visual Studio → File → New → Project  
+2. Select 'Console App' → Name: SortCities → Click Create  
+3. Write the following code in Program.cs and run with Ctrl+F5  
+ 
+PROGRAM CODE : 
+ 
+using System; 
+ 
+namespace SortCities 
+{ 
+    class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+            string[] cities = new string[10]; 
+ 
+            Console.WriteLine("=== City Name Sorter ==="); 
+            Console.WriteLine("Enter names of 10 cities:"); 
+            Console.WriteLine(new string('-', 30)); 
+ 
+            for (int i = 0; i < 10; i++) 
+            { 
+                Console.Write($"City {i + 1}: "); 
+                cities[i] = Console.ReadLine(); 
+            } 
+ 
+            // Sort array using Array.Sort() 
+            Array.Sort(cities, StringComparer.OrdinalIgnoreCase); 
+ 
+            Console.WriteLine("\n--- Cities in Sorted Order ---"); 
+            for (int i = 0; i < cities.Length; i++) 
+            { 
+                Console.WriteLine($"{i + 1}. {cities[i]}"); 
+
+=== PDF PAGE 11 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 8 
+ 
+            } 
+ 
+            Console.WriteLine(new string('-', 30)); 
+            Console.ReadKey(); 
+        } 
+    } 
+}

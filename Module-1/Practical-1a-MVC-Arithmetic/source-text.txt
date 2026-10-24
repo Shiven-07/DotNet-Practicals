@@ -1,0 +1,156 @@
+=== PDF PAGE 4 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 1 
+ 
+                                               
+Practical 1a: MVC Application for Basic Arithmetic Operations  
+ 
+ AIM To create an ASP.NET Core MVC application that performs basic arithmetic operations 
+(Addition, Subtraction, Multiplication, Division) using C#.  
+ 
+Step 1:  
+ 1.Create Project  Open Visual Studio → File → New → Project  
+ 2. Select 'ASP.NET Core Web App (Model-View-Controller)' 
+ 3. Name the project: ArithmeticMVC → Click Create  
+ 4. Select Framework: .NET 6.0 (or .NET 8.0) → Click Create  
+Step 2:  
+Create the Model Right-click Models folder → Add → Class → Name: ArithmeticModel.cs  
+Program Code 
+ 
+Models/ArithmeticModel.cs  
+ 
+using System.ComponentModel.DataAnnotations; 
+ namespace ArithmeticMVC.Models { 
+    public class ArithmeticModel 
+        { 
+           [Required]  
+           [Display(Name = "First Number")] public double Number1 { get; set; }          
+           [Required]  
+           [Display(Name = "Second Number")] public double Number2 { get; set; }  
+           public string Operation { get; set; } = "";  
+           public double Result { get; set; }  
+           public string ErrorMessage { get; set; } = ""; 
+       } 
+   } 
+ 
+ 
+Controllers/HomeController.cs  
+ 
+using ArithmeticMVC.Models; 
+using Microsoft.AspNetCore.Mvc; 
+ 
+namespace ArithmeticMVC.Controllers 
+{ 
+    public class HomeController : Controller 
+
+=== PDF PAGE 5 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 2 
+ 
+    { 
+        public IActionResult Index() 
+        { 
+            return View(new ArithmeticModel()); 
+        } 
+ 
+        [HttpPost] 
+        public IActionResult Index(ArithmeticModel model) 
+        { 
+            if (ModelState.IsValid) 
+            { 
+                switch (model.Operation) 
+                { 
+                    case "Add": 
+                        model.Result = model.Number1 + model.Number2; 
+                        break; 
+                    case "Subtract": 
+                        model.Result = model.Number1 - model.Number2; 
+                        break; 
+                    case "Multiply": 
+                        model.Result = model.Number1 * model.Number2; 
+                        break; 
+                    case "Divide": 
+                        if (model.Number2 == 0) 
+                        { 
+                            model.ErrorMessage = "Error: Division by zero!"; 
+                        } 
+                        else 
+                        { 
+                            model.Result = model.Number1 / model.Number2; 
+                        } 
+                        break; 
+                } 
+            } 
+ 
+            return View(model); 
+        } 
+    } 
+} 
+ 
+
+=== PDF PAGE 6 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 3 
+ 
+Views/Home/Index.cshtml  
+ 
+@model ArithmeticMVC.Models.ArithmeticModel 
+@{ 
+    ViewData["Title"] = "Arithmetic Operations"; 
+} 
+ 
+<h2 class="text-center mt-3">Basic Arithmetic Operations</h2> 
+<hr /> 
+ 
+<div class="container"> 
+    <form asp-action="Index" method="post"> 
+        <div class="row justify-content-center"> 
+            <div class="col-md-6"> 
+                <div class="mb-3"> 
+                    <label asp-for="Number1" class="form-label"></label> 
+                    <input asp-for="Number1" class="form-control" /> 
+                    <span asp-validation-for="Number1" class="text-danger"></span> 
+                </div> 
+                <div class="mb-3"> 
+                    <label asp-for="Number2" class="form-label"></label> 
+                    <input asp-for="Number2" class="form-control" /> 
+                    <span asp-validation-for="Number2" class="text-danger"></span> 
+                </div> 
+                <div class="mb-3"> 
+                    <button type="submit" name="Operation" value="Add" class="btn btn-
+primary">Add (+)</button> 
+                    <button type="submit" name="Operation" value="Subtract" class="btn btn-
+warning">Subtract (-)</button> 
+                    <button type="submit" name="Operation" value="Multiply" class="btn btn-
+success">Multiply (*)</button> 
+                    <button type="submit" name="Operation" value="Divide" class="btn btn-
+danger">Divide (/)</button> 
+                </div> 
+ 
+                @if (Model.ErrorMessage != "") 
+                { 
+                    <div class="alert alert-danger">@Model.ErrorMessage</div> 
+                } 
+                else if (Model.Operation != "") 
+
+=== PDF PAGE 7 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 4 
+ 
+                { 
+                    <div class="alert alert-success"> 
+                        <strong>Result:</strong> @Model.Number1 @Model.Operation 
+@Model.Number2 = @Model.Result 
+                    </div> 
+                } 
+            </div> 
+        </div> 
+    </form> 
+</div> 
+ 
+ 
+Output:

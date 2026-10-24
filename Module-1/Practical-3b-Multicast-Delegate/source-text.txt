@@ -1,0 +1,65 @@
+=== PDF PAGE 29 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 26 
+ 
+Practical 3b: Multicast Delegate  
+ 
+AIM :To demonstrate a multicast delegate in C# that holds references to multiple methods and 
+invokes them all in sequence.  
+ 
+PROGRAM CODE  
+ 
+using System; 
+ 
+namespace MulticastDelegate 
+{ 
+    delegate void PrintDelegate(string message); 
+ 
+    class Printer 
+    { 
+        public static void PrintUpperCase(string msg) 
+        { 
+            Console.WriteLine($"UPPER: {msg.ToUpper()}"); 
+        } 
+ 
+        public static void PrintLowerCase(string msg) 
+        { 
+            Console.WriteLine($"lower: {msg.ToLower()}"); 
+        } 
+ 
+        public static void PrintReverse(string msg) 
+        { 
+            char[] chars = msg.ToCharArray(); 
+            Array.Reverse(chars); 
+            Console.WriteLine($"Reversed: {new string(chars)}"); 
+        } 
+    } 
+ 
+    class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+            Console.WriteLine("=== Multicast Delegate Demo ==="); 
+ 
+            PrintDelegate del = Printer.PrintUpperCase; 
+
+=== PDF PAGE 30 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 27 
+ 
+            del += Printer.PrintLowerCase; 
+            del += Printer.PrintReverse; 
+ 
+            Console.WriteLine("Invoking multicast delegate:"); 
+            del("Hello World"); 
+ 
+            Console.WriteLine("\nRemoving PrintLowerCase:"); 
+            del -= Printer.PrintLowerCase; 
+            del("Hello World"); 
+ 
+            Console.ReadKey(); 
+        } 
+    } 
+}

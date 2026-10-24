@@ -1,0 +1,56 @@
+=== PDF PAGE 8 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 5 
+ 
+Practical 1b: Floyd's Triangle till N Rows in C#  
+ 
+AIM:To write a C# program to print Floyd's triangle up to N rows, where N is input by the user.  
+ 
+Steps to Follow: 
+1. Open Visual Studio → File → New → Project  
+2. Select 'Console App' → Name: FloydTriangle → Click Create 
+3. Write the following code in Program.cs 
+4. Press Ctrl+F5 to run the application  
+ 
+Program.cs  
+ 
+using System; 
+ 
+namespace FloydTriangle 
+{ 
+    class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+            Console.WriteLine("=== Floyd's Triangle ==="); 
+            Console.Write("Enter the number of rows: "); 
+            int n = int.Parse(Console.ReadLine()); 
+ 
+            int number = 1; 
+ 
+            Console.WriteLine("\nFloyd's Triangle:"); 
+            Console.WriteLine(new string('-', 30)); 
+ 
+            for (int i = 1; i <= n; i++) 
+            { 
+                for (int j = 1; j <= i; j++) 
+                { 
+                    Console.Write(number + "\t"); 
+                    number++; 
+                } 
+                Console.WriteLine(); 
+            } 
+ 
+            Console.WriteLine(new string('-', 30)); 
+
+=== PDF PAGE 9 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 6 
+ 
+            Console.WriteLine($"Total numbers printed: {number - 1}"); 
+            Console.ReadKey(); 
+        } 
+    } 
+}

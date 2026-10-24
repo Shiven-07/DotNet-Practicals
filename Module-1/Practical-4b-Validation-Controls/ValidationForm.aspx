@@ -1,0 +1,66 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Validation.aspx.cs"
+    Inherits="StudentRegForm.Validation" %>
+<html>
+<head runat="server"><title>Validation Demo</title></head>
+<body>
+    <form id="form1" runat="server">
+        <h2>Registration with Validation</h2>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><asp:TextBox ID="txtName" runat="server" /></td>
+                <td>
+                    <asp:RequiredFieldValidator ControlToValidate="txtName"
+                        ErrorMessage="Name is required!" ForeColor="Red" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td><asp:TextBox ID="txtAge" runat="server" /></td>
+                <td>
+                    <asp:RequiredFieldValidator ControlToValidate="txtAge"
+                        ErrorMessage="Age required!" ForeColor="Red" runat="server" />
+                    <asp:RangeValidator ControlToValidate="txtAge" Type="Integer"
+                        MinimumValue="18" MaximumValue="60"
+                        ErrorMessage="Age must be 18-60" ForeColor="Red" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><asp:TextBox ID="txtEmail" runat="server" /></td>
+                <td>
+
+<asp:RegularExpressionValidator ControlToValidate="txtEmail"
+                        ValidationExpression="^[\w-\.]+\@([\w-]+\.)+[\w-]{2,4}$"
+                        ErrorMessage="Invalid Email!" ForeColor="Red" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><asp:TextBox ID="txtPass" TextMode="Password" runat="server" /></td>
+                <td>
+                    <asp:RequiredFieldValidator ControlToValidate="txtPass"
+                        ErrorMessage="Password required!" ForeColor="Red" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td>Confirm:</td>
+                <td><asp:TextBox ID="txtConfirm" TextMode="Password" runat="server" /></td>
+                <td>
+                    <asp:CompareValidator ControlToValidate="txtConfirm"
+                        ControlToCompare="txtPass"
+                        ErrorMessage="Passwords do not match!" ForeColor="Red" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <asp:Button ID="btnReg" Text="Register" runat="server"
+                        OnClick="btnReg_Click" />
+                </td>
+            </tr>
+        </table>
+        <asp:ValidationSummary runat="server" ForeColor="Red" />
+        <asp:Label ID="lblMsg" runat="server" ForeColor="Green" />
+    </form>
+</body>
+</html>

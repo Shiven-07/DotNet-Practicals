@@ -1,0 +1,50 @@
+using System;
+
+namespace FunctionOverloading
+{
+    class Calculator
+    {
+        // Overload 1: Two integers
+        public int Add(int a, int b)
+        {
+            Console.WriteLine($"Add(int, int) called");
+            return a + b;
+        }
+
+        // Overload 2: Three integers
+        public int Add(int a, int b, int c)
+        {
+            Console.WriteLine($"Add(int, int, int) called");
+            return a + b + c;
+        }
+
+        // Overload 3: Two doubles
+        public double Add(double a, double b)
+        {
+            Console.WriteLine($"Add(double, double) called");
+            return a + b;
+        }
+
+        // Overload 4: String concatenation
+        public string Add(string a, string b)
+        {
+            Console.WriteLine($"Add(string, string) called");
+            return a + b;
+        }
+
+}
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Calculator calc = new Calculator();
+            Console.WriteLine("=== Function Overloading Demo ===");
+            Console.WriteLine(calc.Add(10, 20));          // 30
+            Console.WriteLine(calc.Add(10, 20, 30));      // 60
+            Console.WriteLine(calc.Add(1.5, 2.5));        // 4.0
+            Console.WriteLine(calc.Add("Hello, ", "World!"));
+            Console.ReadKey();
+        }
+    }
+}

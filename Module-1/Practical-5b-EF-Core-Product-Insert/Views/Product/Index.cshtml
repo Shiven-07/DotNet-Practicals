@@ -1,0 +1,40 @@
+@model WebApplication5.Models.Product
+@{
+    ViewData["Title"] = "Product";
+}
+<h2>Insert Product</h2>
+
+<form asp-action="Index" method="post">
+
+<div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <br />
+
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <br />
+
+    <div>
+        <label asp-for="Quantity"></label>
+        <input asp-for="Quantity" class="form-control" />
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">
+        Save
+    </button>
+
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <br />
+    <h4 style="color:green">@ViewBag.Message</h4>
+}

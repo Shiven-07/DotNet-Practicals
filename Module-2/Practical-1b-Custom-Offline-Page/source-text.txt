@@ -1,0 +1,89 @@
+=== PDF PAGE 57 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 54 
+ 
+Practical1b: PWA with Custom Offline Page 
+ 
+AIM : To create a PWA that displays a custom offline page when the user is not connected to the 
+internet. 
+ 
+Offline.html 
+ 
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Offline - ABC College</title> 
+    <style> 
+        body {  
+            font-family: Arial, sans-serif;  
+            text-align: center;  
+            padding: 60px;  
+            background: #f0f0f0;  
+        } 
+        .icon {  
+            font-size: 80px;  
+        } 
+        h1 {  
+            color: #1F4E79;  
+        } 
+        p {  
+            color: #555;  
+        } 
+        button {  
+            background: #1F4E79;  
+            color: white;  
+            border: none; 
+            padding: 12px 24px;  
+            cursor: pointer;  
+            border-radius: 4px;  
+        } 
+    </style> 
+</head> 
+<body> 
+    <div class="icon">�</div> 
+    <h1>You are Offline</h1> 
+
+=== PDF PAGE 58 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 55 
+ 
+    <p>No internet connection found. Please check your network settings.</p> 
+    <p>Some content may still be available from cache.</p> 
+    <button onclick="window.location.reload()">Try Again</button> 
+</body> 
+</html> 
+ 
+service-worker.js (with offline support) 
+ 
+const CACHE_NAME = 'pwa-offline-v1'; 
+const OFFLINE_URL = '/offline.html'; 
+ 
+self.addEventListener('install', event => { 
+  event.waitUntil( 
+    caches.open(CACHE_NAME).then(cache => { 
+      return cache.addAll(['/', '/offline.html', '/style.css']); 
+    }) 
+  ); 
+  self.skipWaiting(); 
+}); 
+ 
+self.addEventListener('fetch', event => { 
+  if (event.request.mode === 'navigate') { 
+    event.respondWith( 
+      fetch(event.request).catch(() => 
+        caches.open(CACHE_NAME).then(cache => cache.match(OFFLINE_URL)) 
+      ) 
+    ); 
+  } else { 
+    event.respondWith( 
+      caches.match(event.request).then(r => r || fetch(event.request)) 
+    ); 
+  } 
+}); 
+
+=== PDF PAGE 59 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 56

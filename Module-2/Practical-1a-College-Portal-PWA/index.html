@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>College Information Portal</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>College Information Portal</h1>
+        <p>Welcome to Our College</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+
+<a href="#courses">Courses</a>
+        <a href="#notice">Notice</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+
+        <section id="home">
+            <h2>About College</h2>
+            <p>
+                Welcome to our College Information Portal.
+                This website provides college information,
+                courses, notices and contact details.
+            </p>
+        </section>
+
+        <section id="courses">
+            <h2>Courses Offered</h2>
+
+            <ul>
+                <li>B.Sc. Computer Science</li>
+                <li>B.Sc. Information Technology</li>
+                <li>B.Com.</li>
+                <li>B.A.</li>
+            </ul>
+        </section>
+
+        <section id="notice">
+            <h2>Latest Notices</h2>
+
+            <p> Admission process has started.</p>
+            <p> Internal examination timetable released.</p>
+            <p> College annual event will be conducted soon.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+
+            <p>Email: college@example.com</p>
+            <p>Phone: 9876543210</p>
+
+</section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 College Information Portal</p>
+    </footer>
+
+    <!-- Register Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function (registration) {
+                        console.log('Service Worker registered:', registration.scope);
+                    })
+                    .catch(function (error) {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+
+</body>
+</html>

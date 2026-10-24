@@ -1,0 +1,145 @@
+=== PDF PAGE 34 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 31 
+ 
+Practical 4a: Student Registration Form  
+ 
+AIM :To design a Student Registration Form using ASP.NET Web Forms controls including 
+Label, TextBox, RadioButton, DropDownList, CheckBox, Calendar, and Button.  
+ 
+Steps To Follow: 
+1. Open Visual Studio → File → New → Project → ASP.NET Web Application (.NET 
+Framework)  
+2. Select 'Web Forms' template → Name: StudentRegForm → Click Create  
+3. Open Default.aspx and add the following markup  
+4. Open Default.aspx.cs and add the code-behind logic  
+5. Press F5 to run the application  
+ 
+PROGRAM CODE  
+ 
+Default.aspx  
+ 
+<%@ Page Language="C#" AutoEventWireup="true" 
+    CodeBehind="Default.aspx.cs" Inherits="StudentRegForm.Default" %> 
+ 
+<!DOCTYPE html> 
+<html> 
+<head runat="server"> 
+    <title>Student Registration</title> 
+    <style> 
+        body { font-family: Arial; margin: 30px; } 
+        .form-group { margin: 10px 0; } 
+        label { display: inline-block; width: 180px; font-weight: bold; } 
+    </style> 
+</head> 
+<body> 
+    <form id="form1" runat="server"> 
+        <h2>Student Registration Form</h2> 
+        <hr /> 
+        <div class="form-group"> 
+            <asp:Label Text="Student Name:" runat="server" /> 
+            <asp:TextBox ID="txtName" runat="server" Width="200px" /> 
+        </div> 
+        <div class="form-group"> 
+            <asp:Label Text="Gender:" runat="server" /> 
+
+=== PDF PAGE 35 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 32 
+ 
+            <asp:RadioButton ID="rbMale" GroupName="gender" Text="Male" runat="server" /> 
+            <asp:RadioButton ID="rbFemale" GroupName="gender" Text="Female" runat="server" 
+/> 
+        </div> 
+        <div class="form-group"> 
+            <asp:Label Text="Course:" runat="server" /> 
+            <asp:DropDownList ID="ddlCourse" runat="server"> 
+                <asp:ListItem Text="Select Course" Value="" /> 
+                <asp:ListItem Text="BSc IT" Value="BSc IT" /> 
+                <asp:ListItem Text="BSc CS" Value="BSc CS" /> 
+                <asp:ListItem Text="BCA" Value="BCA" /> 
+            </asp:DropDownList> 
+        </div> 
+        <div class="form-group"> 
+            <asp:Label Text="Date of Birth:" runat="server" /> 
+            <asp:Calendar ID="calDOB" runat="server" /> 
+        </div> 
+        <div class="form-group"> 
+            <asp:CheckBox ID="chkTerms" Text="I accept Terms and Conditions" runat="server" 
+/> 
+        </div> 
+        <div class="form-group"> 
+            <asp:Button ID="btnSubmit" Text="Register" runat="server" 
+                OnClick="btnSubmit_Click" /> 
+            <asp:Button ID="btnClear" Text="Clear" runat="server" 
+                OnClick="btnClear_Click" /> 
+        </div> 
+        <hr /> 
+        <asp:Label ID="lblOutput" runat="server" ForeColor="Green" Font-Bold="true" /> 
+    </form> 
+</body> 
+</html> 
+ 
+Default.aspx.cs  
+ 
+using System; 
+ 
+namespace StudentRegForm 
+{ 
+    public partial class Default : System.Web.UI.Page 
+
+=== PDF PAGE 36 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 33 
+ 
+    { 
+        protected void btnSubmit_Click(object sender, EventArgs e) 
+        { 
+            if (!chkTerms.Checked) 
+            { 
+                lblOutput.ForeColor = System.Drawing.Color.Red; 
+                lblOutput.Text = "Please accept Terms and Conditions!"; 
+                return; 
+            } 
+ 
+            string gender = rbMale.Checked ? "Male" : (rbFemale.Checked ? "Female" : "Not 
+Selected"); 
+ 
+            string dob = calDOB.SelectedDate == DateTime.MinValue 
+                ? "Not Selected" 
+                : calDOB.SelectedDate.ToShortDateString(); 
+            lblOutput.ForeColor = System.Drawing.Color.Green; 
+            lblOutput.Text = $"Registration Successful!<br/>" 
+                + $"Name: {txtName.Text}<br/>" 
+                + $"Gender: {gender}<br/>" 
+                + $"Course: {ddlCourse.SelectedValue}<br/>" 
+                + $"DOB: {dob}"; 
+        } 
+ 
+        protected void btnClear_Click(object sender, EventArgs e) 
+        { 
+            txtName.Text = ""; 
+            rbMale.Checked = false; 
+            rbFemale.Checked = false; 
+            ddlCourse.SelectedIndex = 0; 
+            chkTerms.Checked = false; 
+            lblOutput.Text = ""; 
+        } 
+    } 
+} 
+ 
+ 
+ 
+ 
+ 
+
+=== PDF PAGE 37 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 34 
+ 
+ 
+Output:-

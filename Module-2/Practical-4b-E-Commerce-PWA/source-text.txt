@@ -1,0 +1,457 @@
+=== PDF PAGE 78 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 75 
+ 
+Practical 4b: E-Commerce PWA with Product Listing and Offline Cart 
+ 
+AIM: To develop an E-Commerce Progressive Web Application with product listing and offline 
+cart functionality using Service Worker and local Storage. 
+ 
+PROGRAM CODE 
+ 
+<!DOCTYPE html> 
+<html lang="en"> 
+ 
+<head> 
+    <meta charset="UTF-8"> 
+ 
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0"> 
+ 
+    <title>ShopPWA - E-Commerce</title> 
+ 
+    <link rel="manifest" href="manifest.json"> 
+ 
+    <meta name="theme-color" content="#E74C3C"> 
+ 
+    <style> 
+        * { 
+            box-sizing: border-box; 
+        } 
+ 
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            background: #f5f5f5; 
+        } 
+ 
+        header { 
+            background: #E74C3C; 
+            color: white; 
+            padding: 15px 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+
+=== PDF PAGE 79 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 76 
+ 
+        } 
+ 
+        .products { 
+            display: grid; 
+            grid-template-columns: repeat( 
+                auto-fit, 
+                minmax(200px, 1fr) 
+            ); 
+            gap: 20px; 
+            padding: 20px; 
+        } 
+ 
+        .card { 
+            background: white; 
+            border-radius: 8px; 
+            padding: 15px; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+            text-align: center; 
+        } 
+ 
+        .card img { 
+            width: 100%; 
+            height: 150px; 
+            object-fit: cover; 
+            border-radius: 4px; 
+        } 
+ 
+        .price { 
+            color: #E74C3C; 
+            font-size: 1.2em; 
+            font-weight: bold; 
+            margin: 8px 0; 
+        } 
+ 
+        .btn { 
+            background: #E74C3C; 
+            color: white; 
+            border: none; 
+            padding: 8px 16px; 
+            border-radius: 4px; 
+
+=== PDF PAGE 80 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 77 
+ 
+           cursor: pointer; 
+            width: 100%; 
+        } 
+ 
+        .btn:hover { 
+            background: #C0392B; 
+        } 
+ 
+        .cart-panel { 
+            position: fixed; 
+            right: 0; 
+            top: 60px; 
+            background: white; 
+            width: 300px; 
+            height: calc(100vh - 60px); 
+            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1); 
+            padding: 20px; 
+            overflow-y: auto; 
+            display: none; 
+        } 
+ 
+        .cart-panel.open { 
+            display: block; 
+        } 
+ 
+        #cartBadge { 
+            background: white; 
+            color: #E74C3C; 
+            border-radius: 50%; 
+            padding: 2px 6px; 
+            font-size: 12px; 
+            font-weight: bold; 
+        } 
+ 
+        #offlineBar { 
+            background: #FFA500; 
+            text-align: center; 
+            padding: 8px; 
+            display: none; 
+        } 
+
+=== PDF PAGE 81 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 78 
+ 
+    </style> 
+</head> 
+ 
+<body> 
+ 
+    <!-- Offline Message --> 
+    <div id="offlineBar"> 
+        ⚠ You are offline. Cart saved locally. 
+    </div> 
+ 
+    <!-- Header --> 
+    <header> 
+        <h2>� ShopPWA</h2> 
+ 
+        <button 
+            onclick="toggleCart()" 
+            style=" 
+                background: transparent; 
+                border: none; 
+                color: white; 
+                font-size: 20px; 
+                cursor: pointer; 
+            " 
+        > 
+            � Cart 
+            <span id="cartBadge">0</span> 
+        </button> 
+    </header> 
+ 
+    <!-- Product List --> 
+    <div class="products" id="productList"></div> 
+ 
+    <!-- Cart Panel --> 
+    <div class="cart-panel" id="cartPanel"> 
+ 
+        <h3>Your Cart</h3> 
+ 
+        <div id="cartItems"></div> 
+ 
+        <hr> 
+ 
+        <p> 
+            Total: 
+            <strong id="cartTotal">₹0</strong> 
+        </p> 
+ 
+
+=== PDF PAGE 82 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 79 
+ 
+        <button class="btn" onclick="checkout()"> 
+            Checkout 
+        </button> 
+ 
+        <button 
+            onclick="toggleCart()" 
+            style="margin-top: 10px; width: 100%;" 
+        > 
+            Close 
+        </button> 
+ 
+    </div> 
+ 
+    <script> 
+ 
+        // Product List 
+        const products = [ 
+            { 
+                id: 1, 
+                name: "Laptop", 
+                price: 55000, 
+                emoji: "�" 
+            }, 
+            { 
+                id: 2, 
+                name: "Headphones", 
+                price: 2500, 
+                emoji: "�" 
+            }, 
+            { 
+                id: 3, 
+                name: "Smartphone", 
+                price: 18000, 
+                emoji: "�" 
+            }, 
+            { 
+                id: 4, 
+                name: "Tablet", 
+                price: 22000, 
+                emoji: "�" 
+            }, 
+            { 
+                id: 5, 
+                name: "Keyboard", 
+                price: 1500, 
+                emoji: "⌨� 
+
+=== PDF PAGE 83 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 80 
+ 
+ }, 
+            { 
+                id: 6, 
+                name: "Mouse", 
+                price: 800, 
+                emoji: "�" 
+            } 
+        ]; 
+ 
+        // Load cart from Local Storage 
+        let cart = JSON.parse( 
+            localStorage.getItem("pwa-cart") || "[]" 
+        ); 
+ 
+        // Display Products 
+        function renderProducts() { 
+ 
+            document.getElementById("productList").innerHTML = 
+                products.map(p => ` 
+ 
+                    <div class="card"> 
+ 
+                        <div style="font-size: 80px"> 
+                            ${p.emoji} 
+                        </div> 
+ 
+                        <h3>${p.name}</h3> 
+ 
+                        <div class="price"> 
+                            ₹${p.price.toLocaleString()} 
+                        </div> 
+ 
+                        <button 
+                            class="btn" 
+                            onclick="addToCart(${p.id})" 
+                        > 
+                            Add to Cart 
+                        </button> 
+ 
+                    </div> 
+ 
+                `).join(""); 
+        } 
+ 
+        // Add Product to Cart 
+        function addToCart(productId)  
+
+=== PDF PAGE 84 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 81 
+ 
+            const product = products.find( 
+                p => p.id === productId 
+            ); 
+ 
+            const existing = cart.find( 
+                item => item.id === productId 
+            ); 
+ 
+            if (existing) { 
+                existing.qty++; 
+            } else { 
+                cart.push({ 
+                    ...product, 
+                    qty: 1 
+                }); 
+            } 
+ 
+            saveCart(); 
+            renderCart(); 
+ 
+            alert(`${product.name} added to cart!`); 
+        } 
+ 
+        // Save Cart 
+        function saveCart() { 
+ 
+            localStorage.setItem( 
+                "pwa-cart", 
+                JSON.stringify(cart) 
+            ); 
+        } 
+ 
+        // Display Cart 
+        function renderCart() { 
+ 
+            const total = cart.reduce( 
+                (sum, item) => 
+                    sum + item.price * item.qty, 
+                0 
+            ); 
+ 
+            // Cart Badge 
+            document.getElementById("cartBadge").textContent = 
+                cart.reduce( 
+                    (sum, item) => sum + item.qty,               
+  ); 
+
+=== PDF PAGE 85 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 82 
+ 
+ 
+            // Cart Total 
+            document.getElementById("cartTotal").textContent = 
+                `₹${total.toLocaleString()}`; 
+ 
+            // Cart Items 
+            document.getElementById("cartItems").innerHTML = 
+                cart.map(item => ` 
+ 
+                    <div 
+                        style=" 
+                            display: flex; 
+                            justify-content: space-between; 
+                            margin: 8px 0; 
+                        " 
+                    > 
+ 
+                        <span> 
+                            ${item.emoji} 
+                            ${item.name} x${item.qty} 
+                        </span> 
+ 
+                        <span> 
+                            ₹${( 
+                                item.price * item.qty 
+                            ).toLocaleString()} 
+                        </span> 
+ 
+                    </div> 
+ 
+                `).join("") || "<p>Cart is empty</p>"; 
+        } 
+ 
+        // Open / Close Cart 
+        function toggleCart() { 
+ 
+            document 
+                .getElementById("cartPanel") 
+                .classList.toggle("open"); 
+        } 
+ 
+        // Checkout 
+        function checkout() { 
+ if (!navigator.onLine)  
+                alert( 
+                    "You are offline. Order will be placed when you reconnect." 
+
+=== PDF PAGE 86 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 83 
+ 
+                ); 
+ 
+            } else { 
+ 
+                alert( 
+                    "Order placed successfully! Thank you!" 
+                ); 
+ 
+                cart = []; 
+ 
+                saveCart(); 
+                renderCart(); 
+            } 
+        } 
+ 
+        // Offline Event 
+        window.addEventListener("offline", () => { 
+ 
+            document.getElementById( 
+                "offlineBar" 
+            ).style.display = "block"; 
+ 
+        }); 
+ 
+        // Online Event 
+        window.addEventListener("online", () => { 
+ 
+            document.getElementById( 
+                "offlineBar" 
+            ).style.display = "none"; 
+ 
+        }); 
+ 
+        // Initial Display 
+        renderProducts(); 
+        renderCart(); 
+ 
+        // Register Service Worker 
+        if ("serviceWorker" in navigator) { 
+ 
+            navigator.serviceWorker.register("/sw.js"); 
+ 
+    </script> 
+</body> 
+</html> 
+ 
+ 
+
+=== PDF PAGE 87 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 84 
+ 
+Output

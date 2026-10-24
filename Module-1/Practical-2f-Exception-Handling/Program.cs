@@ -1,0 +1,76 @@
+using System;
+
+namespace ExceptionHandling
+{
+    // Custom exception
+    class InvalidAgeException : Exception
+    {
+        public InvalidAgeException(string msg) : base(msg) { }
+    }
+
+    class Program
+    {
+        static void ValidateAge(int age)
+        {
+            if (age < 0 || age > 120)
+                throw new InvalidAgeException($"Invalid age: {age}");
+        }
+
+        static void Main(string[] args)
+        {
+            // 1. DivideByZeroException
+            Console.WriteLine("--- DivideByZero Exception ---");
+            try
+            {
+                int a = 10, b = 0;
+                Console.WriteLine(a / b);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine($"Caught: {ex.Message}");
+            }
+            finally
+            {
+
+Console.WriteLine("Finally block executed.");
+            }
+
+            // 2. FormatException
+            Console.WriteLine("\n--- Format Exception ---");
+            try
+            {
+                int num = int.Parse("abc");
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine($"Caught: {ex.Message}");
+            }
+
+            // 3. IndexOutOfRange
+            Console.WriteLine("\n--- IndexOutOfRange Exception ---");
+            try
+            {
+                int[] arr = { 1, 2, 3 };
+                Console.WriteLine(arr[10]);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine($"Caught: {ex.Message}");
+            }
+
+            // 4. Custom Exception
+            Console.WriteLine("\n--- Custom Exception ---");
+            try
+            {
+                ValidateAge(-5);
+            }
+            catch (InvalidAgeException ex)
+            {
+                Console.WriteLine($"Custom Exception: {ex.Message}");
+            }
+
+            Console.ReadKey();
+        }
+    }
+
+}

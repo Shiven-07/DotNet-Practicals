@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Offline - ABC College</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 60px;
+            background: #f0f0f0;
+        }
+        .icon {
+            font-size: 80px;
+        }
+        h1 {
+            color: #1F4E79;
+        }
+        p {
+            color: #555;
+        }
+        button {
+            background: #1F4E79;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="icon"></div>
+    <h1>You are Offline</h1>
+
+<p>No internet connection found. Please check your network settings.</p>
+    <p>Some content may still be available from cache.</p>
+    <button onclick="window.location.reload()">Try Again</button>
+</body>
+</html>

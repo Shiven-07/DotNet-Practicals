@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Records PWA</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2E75B6" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      box-sizing: border-box;
+    }
+    button {
+      background: #2E75B6;
+
+color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background: #2E75B6;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h2> Student Record Manager</h2>
+   <div>
+    <input type="text" id="name" placeholder="Student Name" />
+    <input type="text" id="roll" placeholder="Roll Number" />
+    <select id="course">
+      <option value="BSc IT">BSc IT</option>
+      <option value="BSc CS">BSc CS</option>
+
+<option value="BCA">BCA</option>
+    </select>
+    <input type="number" id="marks" placeholder="Marks (out of 100)" />
+    <button onclick="addStudent()">Add Student</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Roll</th>
+        <th>Course</th>
+        <th>Marks</th>
+      </tr>
+    </thead>
+    <tbody id="studentTable"></tbody>
+  </table>
+  <script>
+    let students = JSON.parse(localStorage.getItem('students')) || [];
+    function render() {
+      const tbody = document.getElementById('studentTable');
+      tbody.innerHTML = students.map((s, i) =>
+        `<tr>
+          <td>${i + 1}</td>
+          <td>${s.name}</td>
+          <td>${s.roll}</td>
+          <td>${s.course}</td>
+          <td>${s.marks}</td>
+
+</tr>`
+      ).join('');
+    }
+    function addStudent() {
+      students.push({
+        name: document.getElementById('name').value,
+        roll: document.getElementById('roll').value,
+        course: document.getElementById('course').value,
+        marks: document.getElementById('marks').value
+      });
+      localStorage.setItem('students', JSON.stringify(students));
+      render();
+    }
+    render();
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+</body>
+</html>

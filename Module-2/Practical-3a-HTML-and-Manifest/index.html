@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="My Progressive Web App" />
+  <meta name="theme-color" content="#1F4E79" />
+  <!-- Link to manifest.json -->
+  <link rel="manifest" href="manifest.json" />
+  <!-- Icon for iOS -->
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <title>My PWA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <h1>Welcome to My PWA</h1>
+    <p>This app works online and offline!</p>
+    <p id="status">Checking connection...</p>
+  </div>
+  <script>
+    // Check online status
+    function updateStatus() {
+      document.getElementById('status').textContent =
+
+navigator.onLine ? ' Online' : ' Offline';
+    }
+    window.addEventListener('online', updateStatus);
+    window.addEventListener('offline', updateStatus);
+    updateStatus();
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(reg => {
+          console.log('SW registered. Scope:', reg.scope);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

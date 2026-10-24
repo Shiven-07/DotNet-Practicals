@@ -1,0 +1,45 @@
+@model ArithmeticMVC.Models.ArithmeticModel
+@{
+    ViewData["Title"] = "Arithmetic Operations";
+}
+
+<h2 class="text-center mt-3">Basic Arithmetic Operations</h2>
+<hr />
+
+<div class="container">
+    <form asp-action="Index" method="post">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="Number1" class="form-label"></label>
+                    <input asp-for="Number1" class="form-control" />
+                    <span asp-validation-for="Number1" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Number2" class="form-label"></label>
+                    <input asp-for="Number2" class="form-control" />
+                    <span asp-validation-for="Number2" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" name="Operation" value="Add" class="btn btn-primary">Add (+)</button>
+                    <button type="submit" name="Operation" value="Subtract" class="btn btn-warning">Subtract (-)</button>
+                    <button type="submit" name="Operation" value="Multiply" class="btn btn-success">Multiply (*)</button>
+                    <button type="submit" name="Operation" value="Divide" class="btn btn-danger">Divide (/)</button>
+                </div>
+
+                @if (Model.ErrorMessage != "")
+                {
+                    <div class="alert alert-danger">@Model.ErrorMessage</div>
+                }
+                else if (Model.Operation != "")
+
+{
+                    <div class="alert alert-success">
+                        <strong>Result:</strong> @Model.Number1 @Model.Operation
+@Model.Number2 = @Model.Result
+                    </div>
+                }
+            </div>
+        </div>
+    </form>
+</div>

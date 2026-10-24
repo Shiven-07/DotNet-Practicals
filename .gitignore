@@ -1,0 +1,14 @@
+# Build and editor files
+**/bin/
+**/obj/
+.vs/
+.vscode/
+*.user
+*.suo
+node_modules/
+.DS_Store
+Thumbs.db
+# Local credentials
+.env
+.env.*
+appsettings.*.local.json

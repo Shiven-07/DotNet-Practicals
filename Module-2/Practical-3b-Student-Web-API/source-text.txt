@@ -1,0 +1,75 @@
+=== PDF PAGE 71 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 68 
+ 
+Practical 3b: Simple Web API returning Student data in JSON 
+ 
+AIM :To create a simple ASP.NET Core Web API that returns Student data in JSON format. 
+ 
+ 
+Models/Student.cs 
+ 
+namespace StudentAPI.Models 
+{ 
+    public class Student 
+    { 
+        public int Id { get; set; } 
+        public string Name { get; set; } 
+        public string Course { get; set; } 
+        public int Age { get; set; } 
+        public double Percentage { get; set; } 
+    } 
+} 
+ 
+Controllers/StudentsController.cs 
+ 
+using Microsoft.AspNetCore.Mvc; 
+using StudentAPI.Models; 
+ 
+namespace StudentAPI.Controllers 
+{ 
+    [ApiController] 
+    [Route("api/[controller]")] 
+    public class StudentsController : ControllerBase 
+    { 
+        private static List<Student> students = new List<Student> 
+        { 
+            new Student { Id = 1, Name = "Alice", Course = "BSc IT", Age = 20, Percentage = 85.5 
+}, 
+            new Student { Id = 2, Name = "Bob", Course = "BCA", Age = 21, Percentage = 78.0 }, 
+            new Student { Id = 3, Name = "Carol", Course = "BSc CS", Age = 19, Percentage = 91.2 
+} 
+        }; 
+ 
+        
+
+=== PDF PAGE 72 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 69 
+ 
+ // GET: api/students 
+        [HttpGet] 
+        public ActionResult<IEnumerable<Student>> GetAll() 
+            => Ok(students); 
+ 
+        // GET: api/students/1 
+        [HttpGet("{id}")] 
+        public ActionResult<Student> GetById(int id) 
+        { 
+            var s = students.FirstOrDefault(x => x.Id == id); 
+            if (s == null) return NotFound(new { message = "Student not found" }); 
+            return Ok(s); 
+        } 
+    } 
+} 
+ 
+Output: 
+ 
+
+
+=== PDF PAGE 73 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 70

@@ -1,0 +1,203 @@
+=== PDF PAGE 44 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 41 
+ 
+Practical 5b: Product Table with EF Core (Insert Operation) 
+ 
+AIM: To create a Product table in SQL Server and perform Insert Operation using Entity 
+Framework Core in an ASP.NET Core application. 
+ 
+Steps 
+1. Install NuGet packages: Microsoft.EntityFrameworkCore,  
+Microsoft.EntityFrameworkCore.SqlServer, Microsoft.EntityFrameworkCore.Tools 
+2. Create the Product model and DbContext 
+3. Configure connection string in appsettings.json 
+4. Run migrations: Add-Migration Init → Update-Database 
+ 
+ 
+Product.cs 
+ 
+using System.ComponentModel.DataAnnotations; 
+namespace WebApplication5.Models 
+{ 
+    public class Product 
+    { 
+        [Key] 
+        public int Id { get; set; } 
+ 
+        [Required] 
+        public string Name { get; set; } = string.Empty; 
+ 
+        public decimal Price { get; set; } 
+ 
+        public int Quantity { get; set; } 
+    } 
+} 
+ 
+AppDbContext.cs 
+using Microsoft.EntityFrameworkCore; 
+using WebApplication5.Models; 
+namespace WebApplication5.Models.Data 
+{ 
+    public class AppDbContext : DbContext 
+    { 
+        public AppDbContext(DbContextOptions<AppDbContext> options) 
+            : base(options) 
+        { 
+        } 
+
+=== PDF PAGE 45 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 42 
+ 
+ 
+        public DbSet<Product> Products { get; set; } 
+    } 
+} 
+ 
+ProductController.cs 
+using Microsoft.AspNetCore.Mvc; 
+using WebApplication5.Models; 
+using WebApplication5.Models.Data; 
+ 
+namespace WebApplication5.Controllers 
+{ 
+    public class ProductController : Controller 
+    { 
+        private readonly AppDbContext _context; 
+ 
+        public ProductController(AppDbContext context) 
+        { 
+            _context = context; 
+        } 
+ 
+        // Display Form 
+        public IActionResult Index() 
+        { 
+            return View(); 
+        } 
+ 
+        // Insert Product 
+        [HttpPost] 
+        public IActionResult Index(Product product) 
+        { 
+            if (ModelState.IsValid) 
+            { 
+                _context.Products.Add(product); 
+                _context.SaveChanges(); 
+ 
+                ViewBag.Message = "Product Inserted Successfully"; 
+                ModelState.Clear(); 
+            } 
+ 
+            return View(); 
+        } 
+    } 
+} 
+ 
+
+=== PDF PAGE 46 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 43 
+ 
+Appsetting Json file 
+"ConnectionStrings": { 
+  "DefaultConnection": 
+"Server=(localdb)\\MSSQLLocalDB;Database=ProductDB;Trusted_Connection=True;Multiple
+ActiveResultSets=true;TrustServerCertificate=True" 
+ 
+Program.cs 
+using Microsoft.EntityFrameworkCore; 
+using WebApplication5.Models.Data; 
+ 
+var builder = WebApplication.CreateBuilder(args); 
+ 
+builder.Services.AddControllersWithViews(); 
+ 
+builder.Services.AddDbContext<AppDbContext>(options => 
+    options.UseSqlServer( 
+        builder.Configuration.GetConnectionString("DefaultConnection"))); 
+ 
+var app = builder.Build(); 
+ 
+app.UseHttpsRedirection(); 
+app.UseStaticFiles(); 
+ 
+app.UseRouting(); 
+ 
+app.UseAuthorization(); 
+ 
+app.MapControllerRoute( 
+    name: "default", 
+    pattern: "{controller=Home}/{action=Index}/{id?}"); 
+ 
+app.Run(); 
+ 
+ 
+Index.cshtml 
+ 
+@model WebApplication5.Models.Product 
+@{ 
+    ViewData["Title"] = "Product"; 
+} 
+<h2>Insert Product</h2> 
+ 
+<form asp-action="Index" method="post"> 
+ 
+
+=== PDF PAGE 47 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 44 
+ 
+    <div> 
+        <label asp-for="Name"></label> 
+        <input asp-for="Name" class="form-control" /> 
+    </div> 
+ 
+    <br /> 
+ 
+    <div> 
+        <label asp-for="Price"></label> 
+        <input asp-for="Price" class="form-control" /> 
+    </div> 
+ 
+    <br /> 
+ 
+    <div> 
+        <label asp-for="Quantity"></label> 
+        <input asp-for="Quantity" class="form-control" /> 
+    </div> 
+ 
+    <br /> 
+ 
+    <button type="submit" class="btn btn-primary"> 
+        Save 
+    </button> 
+ 
+</form> 
+ 
+@if (ViewBag.Message != null) 
+{ 
+    <br /> 
+    <h4 style="color:green">@ViewBag.Message</h4> 
+} 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PDF PAGE 48 ===
+                                       Dot .Net Core and Progressive Web Application 
+ 
+TYBSC(IT) Page 45 
+ 
+Output
