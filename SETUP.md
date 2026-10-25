@@ -7,7 +7,7 @@
 3. For browser uploads, use separate batches: the root files first, then the Module-1 folder, then the Module-2 folder. Preserve those module folder names and their contents.
 4. Commit the uploaded files. The README becomes your clickable practical index.
 
-Do not upload only the ZIP if you want to browse individual programs on GitHub. Files have been prepared locally; a remote GitHub repository has not been created or updated.
+Do not upload only the ZIP if you want to browse individual programs on GitHub.
 
 ## C# console programs
 
@@ -21,7 +21,7 @@ The API sample needs controller registration and mapping in startup. EF Core add
 
 ## ASP.NET Web Forms
 
-Use an ASP.NET Web Application **(.NET Framework)** with Web Forms, as stated in the PDF. Let Visual Studio create the project and designer files. Read the validation practical's missing-code note before running it.
+Use an ASP.NET Web Application **(.NET Framework)** with Web Forms, as stated in the PDF. Let Visual Studio create the project and designer files. Read the validation practical's missing-code note before running it. The added AdRotator practical is a self-contained Web Site example; follow its own README to open that folder directly.
 
 ## PWA examples
 
@@ -29,4 +29,4 @@ Read each practical's missing-assets note first. Serve a completed example on lo
 
 ## Package scope
 
-This is an organized extraction of the supplied practical book with documented syntax cleanup, not complete generated Visual Studio solutions. No original output screenshot has been recreated. Original screenshots are not evidence of a new test run. See VALIDATION.md for the actual checks.
+The original 24 practicals are an organized extraction with documented syntax cleanup, not complete generated Visual Studio solutions. Practical 4c is a newly authored self-contained Web Forms Web Site example. No original output screenshot has been recreated. Original screenshots are not evidence of a new test run. See VALIDATION.md for the actual checks.

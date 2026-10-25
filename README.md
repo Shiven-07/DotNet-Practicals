@@ -2,19 +2,19 @@
 
 🚀 Made by **Shiven Dubey** | **TYBSc IT – University of Mumbai** 🎓 | A collection of **.NET Core, C# & PWA** practicals created to help my friends and fellow IT students learn, code, debug, and grow together! 💻🔥
 
-Practical-wise reference files extracted from the supplied **DotNet(2026).pdf**. No individual screenshots are needed.
+Practical-wise study files based on **DotNet(2026).pdf**, with an additional AdRotator example. Original output screenshots are preserved in the extracted PDFs.
 
-**24 practicals extracted across two modules.** The original index lists 25; Module 1 Practical 4c (AdRotator) is absent from the PDF body and has a clearly marked placeholder folder.
+**25 practical entries across two modules:** 24 extracted from the PDF, plus a new self-contained **Practical 4c (AdRotator)** example. The AdRotator solution was added separately because it is absent from the original PDF body.
 
 [Full original PDF](DotNet%282026%29.pdf) | [Setup guide](SETUP.md) | [Corrections and source gaps](SOURCE-NOTES.md) | [Validation](VALIDATION.md)
 
 ## How to use
 
 1. Choose a practical from the tables below.
-2. Open a named source file to read/copy its code, or open source.pdf for the original instructions and existing output images.
+2. Open a named source file to read/copy its code, or open source.pdf where available for the original instructions and existing output images.
 3. Follow its README setup notes before running it. Several examples omit project files or supporting assets.
 
-Each practical keeps its own code, a README, original PDF pages and unedited extracted text. This collection does not combine independent C# entry points into one application. Use as study material or where reference material is permitted.
+Each extracted practical keeps its own code, a README, original PDF pages and unedited extracted text. The added AdRotator practical includes its own example files and setup guide. This collection does not combine independent C# entry points into one application. Use as study material or where reference material is permitted.
 
 ## Module 1
 
@@ -34,7 +34,7 @@ Each practical keeps its own code, a README, original PDF pages and unedited ext
 | 3c | BankAccount Class with Property Validation | [Open](Module-1/Practical-3c-BankAccount-Properties/README.md) | [PDF 31-33](Module-1/Practical-3c-BankAccount-Properties/source.pdf) |
 | 4a | Student Registration Form | [Open](Module-1/Practical-4a-Student-Registration/README.md) | [PDF 34-37](Module-1/Practical-4a-Student-Registration/source.pdf) |
 | 4b | Registration Form with Validation Controls | [Open](Module-1/Practical-4b-Validation-Controls/README.md) | [PDF 38-40](Module-1/Practical-4b-Validation-Controls/source.pdf) |
-| 4c | AdRotator Control | [Open](Module-1/Practical-4c-AdRotator-MISSING/README.md) | **Missing** |
+| 4c | AdRotator Control | [Open](Module-1/Practical-4c-AdRotator/README.md) | Added example; absent from PDF |
 | 5a | Different Types of Cookies | [Open](Module-1/Practical-5a-Cookies/README.md) | [PDF 41-43](Module-1/Practical-5a-Cookies/source.pdf) |
 | 5b | Product Table with EF Core (Insert Operation) | [Open](Module-1/Practical-5b-EF-Core-Product-Insert/README.md) | [PDF 44-48](Module-1/Practical-5b-EF-Core-Product-Insert/source.pdf) |
 

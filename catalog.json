@@ -276,14 +276,28 @@
     "module": 1,
     "practical": "4c",
     "title": "AdRotator Control",
-    "path": "Module-1/Practical-4c-AdRotator-MISSING",
-    "status": "Missing from PDF",
-    "files": [],
+    "path": "Module-1/Practical-4c-AdRotator",
+    "status": "Added example",
+    "files": [
+      "Default.aspx",
+      "App_Data/Ads.xml",
+      "Web.config",
+      "style.css",
+      "Images/admissions.svg",
+      "Images/courses.svg",
+      "Images/events.svg",
+      "Admissions.html",
+      "Courses.html",
+      "Events.html"
+    ],
     "pdf_pages": null,
     "notes": [
-      "Listed in the index but absent from the PDF body."
+      "New self-contained .NET Framework 4.8 Web Forms website. The original PDF contains only the index entry for this practical. Open this folder as a Web Site in Visual Studio or serve it with IIS Express."
     ],
-    "changes": []
+    "changes": [
+      "Replaced the missing-practical placeholder with a newly authored example, three original SVG banners and local link destinations."
+    ],
+    "kind": "webforms"
   },
   {
     "module": 1,

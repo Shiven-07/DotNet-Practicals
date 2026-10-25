@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="240" viewBox="0 0 720 240" role="img" aria-labelledby="title desc">
+  <title id="title">TECH FEST</title>
+  <desc id="desc">Create. Collaborate. Celebrate.. Discover sample student activities.</desc>
+  <rect width="720" height="240" rx="12" fill="#53326e"/>
+  <circle cx="674" cy="18" r="116" fill="#e6b3f9" opacity=".12"/>
+  <circle cx="690" cy="226" r="98" fill="#e6b3f9" opacity=".18"/>
+  <rect x="32" y="30" width="126" height="25" rx="4" fill="#e6b3f9"/>
+  <text x="44" y="47" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#53326e">COLLEGE DEMO</text>
+  <text x="32" y="112" font-family="Arial, sans-serif" font-size="35" font-weight="700" fill="#ffffff">TECH FEST</text>
+  <text x="32" y="152" font-family="Arial, sans-serif" font-size="20" fill="#ffffff">Create. Collaborate. Celebrate.</text>
+  <text x="32" y="202" font-family="Arial, sans-serif" font-size="15" fill="#e6b3f9">Discover sample student activities &#8594;</text>
+</svg>

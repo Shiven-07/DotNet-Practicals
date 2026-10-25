@@ -13,8 +13,16 @@ Checks performed on the packaged files:
 
 ## Limits of these checks
 
-Compilation and syntax checks are not end-to-end application tests. The original console programs were not interactively executed. ASP.NET Core MVC/API/EF, Web Forms and browser PWA projects were not built or run end to end. Razor/ASPX rendering, SQL insertion, service-worker caching, PWA installation and real push delivery have not been verified.
+Compilation and syntax checks are not end-to-end application tests. The original console programs were not interactively executed. ASP.NET Core MVC/API/EF, the original extracted Web Forms snippets and browser PWA projects were not built or run end to end. Razor/ASPX rendering, SQL insertion, service-worker caching, PWA installation and real push delivery have not been verified.
 
 Many practicals are snippets that need template files or assets not supplied by the PDF. Each README lists those gaps. The original PDF output images are reference material, not screenshots from these checks.
 
 See [SOURCE-NOTES.md](SOURCE-NOTES.md) for all changes made to the extracted code.
+
+## Added AdRotator practical
+
+- The new Practical 4c passed ASP.NET precompilation with the installed .NET Framework 4.8 compiler.
+- An ASP.NET hosting harness rendered Default.aspx successfully and observed all three banners and their matching destination links across six requests.
+- All three destination files contain their return link. XML, SVG and catalog paths were checked.
+- IIS Express could not start in this execution environment because Windows denied LSA access. A browser run under IIS Express has not been verified.
+- This practical is newly authored; it was absent from the supplied PDF.

@@ -2,9 +2,9 @@
 
 The PDFs are page-for-page copies of the supplied source. Raw extracted text is retained before code cleanup. Corrections below apply only to editable source files.
 
-## Missing practical
+## Added practical
 
-Module 1 Practical 4c (AdRotator) appears in the original index only. No code or output was supplied.
+Module 1 Practical 4c (AdRotator) appears in the original index only. A [new self-contained Web Forms example](Module-1/Practical-4c-AdRotator/README.md) has been added with its own page, XML ad list, three SVG banners and local destination pages. It was written for this collection and is not extracted from, or a recreation of missing pages in, the original PDF.
 
 ## [Module 1 / 1a: MVC Application for Basic Arithmetic Operations](Module-1/Practical-1a-MVC-Arithmetic/README.md)
 

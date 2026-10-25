@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="240" viewBox="0 0 720 240" role="img" aria-labelledby="title desc">
+  <title id="title">LEARN C# &amp; .NET</title>
+  <desc id="desc">Build your skills, one program at a time. Explore our sample courses.</desc>
+  <rect width="720" height="240" rx="12" fill="#145744"/>
+  <circle cx="674" cy="18" r="116" fill="#97e6c1" opacity=".12"/>
+  <circle cx="690" cy="226" r="98" fill="#97e6c1" opacity=".18"/>
+  <rect x="32" y="30" width="126" height="25" rx="4" fill="#97e6c1"/>
+  <text x="44" y="47" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#145744">COLLEGE DEMO</text>
+  <text x="32" y="112" font-family="Arial, sans-serif" font-size="35" font-weight="700" fill="#ffffff">LEARN C# &amp; .NET</text>
+  <text x="32" y="152" font-family="Arial, sans-serif" font-size="20" fill="#ffffff">Build your skills, one program at a time</text>
+  <text x="32" y="202" font-family="Arial, sans-serif" font-size="15" fill="#97e6c1">Explore our sample courses &#8594;</text>
+</svg>
